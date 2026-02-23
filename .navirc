@@ -1,0 +1,4 @@
+nav() {
+    source <(command nav-bin "$@")
+}
+
