@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
 	if(argc < 2 ) {
-		printf("incorrect ammount of aruguments.\n");
+		printf("Hey! Listen! you need more arguments.\n");
 		printf("usage:\n");
 		printf("navi -a snippet pwd\n");
 		printf("navi -a /manuel/input/filepath\n");

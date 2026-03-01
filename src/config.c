@@ -10,7 +10,7 @@ bool saveSnippet(Snippets *snip) {
 	const char *home = getenv("HOME");
 	char path[PATH_MAX];
 	bool saved = true;
-	snprintf(path,sizeof(path), "%s/.config/navi/navi.conf", home);
+	snprintf(path,sizeof(path), "%s%s", home, CONFIG_FILE);
 	
 	FILE *f = fopen(path, "a");
 	
@@ -28,8 +28,8 @@ bool updateSnippet(Snippets *snip) {
 	const char *home = getenv("HOME");
 	char path[PATH_MAX];	
 	char tempPath[PATH_MAX];
-	snprintf(path,sizeof(path), "%s/.config/navi/navi.conf", home);
-	snprintf(tempPath,sizeof(tempPath), "%s/.config/navi/navitemp.conf", home);
+	snprintf(path,sizeof(path), "%s%s", home, CONFIG_FILE);
+	snprintf(tempPath,sizeof(tempPath), "%s%s", home, CONFIG_TEMPFILE);
 	FILE *f = fopen(path,"r");
 	FILE *ft = fopen(tempPath,"w");
 	char *line = NULL;
@@ -64,8 +64,8 @@ bool removeSnippet(Snippets *snip) {
 	const char *home = getenv("HOME");
 	char path[PATH_MAX];	
 	char tempPath[PATH_MAX];
-	snprintf(path,sizeof(path), "%s/.config/navi/navi.conf", home);
-	snprintf(tempPath,sizeof(tempPath), "%s/.config/navi/navitemp.conf", home);
+	snprintf(path,sizeof(path), "%s%s", home, CONFIG_FILE);
+	snprintf(tempPath,sizeof(tempPath), "%s%s", home, CONFIG_TEMPFILE);
 	FILE *f = fopen(path,"r");
 	FILE *ft = fopen(tempPath,"w");
 	char *line = NULL;
@@ -98,7 +98,7 @@ bool snippetExist(Snippets *snip) {
 	bool snipExist = false;
 	const char *home = getenv("HOME");
 	char path[PATH_MAX];
-	snprintf(path,sizeof(path), "%s/.config/navi/navi.conf", home);
+	snprintf(path,sizeof(path), "%s%s", home, CONFIG_FILE);
 	FILE *f = fopen(path,"r");
 	if(!f) {
 		perror("fopen");
@@ -131,7 +131,7 @@ bool dirExist(const char *path) {
 void listSnippets() {
 	const char *home = getenv("HOME");
 	char path[PATH_MAX];
-	snprintf(path,sizeof(path), "%s/.config/navi/navi.conf", home);
+	snprintf(path,sizeof(path), "%s%s", home, CONFIG_FILE);
 	FILE *f = fopen(path,"r");
 	if(!f) {
 		perror("fopen");
@@ -145,7 +145,7 @@ void listSnippets() {
 void getSnippetDir(Snippets *snip) {
 	const char *home = getenv("HOME");
 	char path[PATH_MAX];
-	snprintf(path,sizeof(path), "%s/.config/navi/navi.conf", home);
+	snprintf(path,sizeof(path), "%s%s", home, CONFIG_FILE);
 	FILE *f = fopen(path,"r");
 	if(!f) {
 		perror("fopen");

@@ -1,5 +1,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
+#define CONFIG_FILE "/.config/navi/navi.conf"
+#define CONFIG_TEMPFILE "/.config/navi/navitemp.conf"
 //Includes
 
 #include <stdio.h>
